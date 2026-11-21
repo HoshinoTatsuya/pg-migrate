@@ -1,0 +1,18 @@
+{
+  "src/constants/lock-key-hash.constant.ts": {
+    "count": 3,
+    "reason": "LockKeyHash выведен из значений LOCK_KEY_HASH, LOCK_KEY_SQL — SQL-выражение для каждого его значения: словарь, тип и таблица SQL обязаны меняться вместе (Record<LockKeyHash, …> проверяет полноту)"
+  },
+  "src/constants/session-transaction.constant.ts": {
+    "count": 2,
+    "reason": "SessionTransaction выведен из значений словаря SESSION_TRANSACTION и без него не существует; порознь тип и словарь разошлись бы"
+  },
+  "src/refuse-skipped-migrations.ts": {
+    "count": 2,
+    "reason": "readJournalTags читает теги журнала drizzle-kit в порядке readMigrationFiles — шаг refuseSkippedMigrations, вне неё не вызывается"
+  },
+  "src/testing/test-database.ts": {
+    "count": 3,
+    "reason": "фикстура набора: отдельная база на тест, запись каталога миграций и его уборка; в сборку не входит, читается целиком рядом со спеками"
+  }
+}
