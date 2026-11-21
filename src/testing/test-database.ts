@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import { Client } from 'pg';
+import { dropDatabase } from './drop-database';
 
 /** Отдельная база на тест: миграции и локи одного теста не видны другому. */
 export const createTestDatabase = async (
@@ -21,7 +22,7 @@ export const createTestDatabase = async (
     drop: async () => {
       const cleanup = new Client({ connectionString: adminUrl });
       await cleanup.connect();
-      await cleanup.query(`DROP DATABASE IF EXISTS ${name} WITH (FORCE)`);
+      await dropDatabase(cleanup, name);
       await cleanup.end();
     },
   };
